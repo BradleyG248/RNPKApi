@@ -1,0 +1,12 @@
+{
+  "name": "pokeApi",
+  "displayName": "pokeApi",
+  "expo": {
+    "name": "pokeApi",
+    "slug": "pokeApi",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
