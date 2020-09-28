@@ -1,14 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { Value } from 'react-native-reanimated';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+let userInput = "";
+
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      activePokemon: ""
+    }
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event = {}) {
+    userInput = event.target.text;
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>{userInput}</Text>
+        <TextInput onChangeText={this.handleChange}>text</TextInput>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
