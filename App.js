@@ -25,8 +25,11 @@ export default class App extends React.Component {
       let res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.userInput}`);
       if (res.data) {
         this.setState({ activePokemon: res.data });
+        let name = this.state.activePokemon.species.name;
+        name[0].toUpperCase();
+        console.log(name)
         let arr = [
-          <Text>{this.state.activePokemon.species.name}</Text>,
+          <Text>{name}</Text>,
           <Image style={styles.pokeImg} source={{ uri: this.state.activePokemon.sprites.front_default }} />,
           <TouchableWithoutFeedback onPress={this.dropAccordion} style={styles.accordion}>
             <Text>Abilities</Text>
